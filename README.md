@@ -1,28 +1,43 @@
 # TEMPO: A Realistic Multi-Domain Benchmark for Temporal Reasoning-Intensive Retrieval
 
 <p align="center">
+    <a href="https://tempo-bench.github.io" target="_blank">
+        <img src="https://img.shields.io/badge/🌐_Website-TEMPO_Benchmark-blue?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website">
+    </a>
     <a href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank">
-        <img src="https://img.shields.io/badge/ArXiv-xxxx.xxxxx-b31b1b.svg?style=for-the-badge" alt="ArXiv">
+        <img src="https://img.shields.io/badge/📄_Paper-ArXiv-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white" alt="ArXiv">
     </a>
     <a href="https://huggingface.co/datasets/tempo26/Tempo" target="_blank">
-        <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-datasets-yellow.svg?style=for-the-badge" alt="Hugging Face Datasets">
+        <img src="https://img.shields.io/badge/🤗_Dataset-Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face Datasets">
+    </a>
+    <a href="https://github.com/tempo-bench/Tempo/blob/main/LICENSE" target="_blank">
+        <img src="https://img.shields.io/badge/⚖️_License-MIT-green?style=for-the-badge" alt="License">
     </a>
 </p>
 
 <p align="center">
-    <img src="figures/intro.jpg" width="85%" alt="Overview of BRIGHT benchmark">
+    <img src="figures/intro.jpg" width="90%" alt="Overview of TEMPO Benchmark" style="border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
 </p>
 
-
-Existing temporal QA benchmarks focus on simple fact-seeking queries from news corpora, while reasoning-intensive retrieval benchmarks lack temporal grounding. However, real-world information needs often require reasoning about temporal evolution and synthesizing evidence across time periods. We introduce **TEMPO**, the first benchmark combining temporal reasoning with reasoning-intensive retrieval across 13 domains. TEMPO features: (1) 1,730 complex queries requiring deep temporal reasoning such as tracking changes, identifying trends, or comparing cross-period evidence; (2) step-wise retrieval planning with 3,976 decomposed steps and gold documents mapped to each step for multi-hop evaluation; and (3) novel temporal metrics including Temporal Coverage@k and Temporal Precision@k measuring whether results span required time periods. Evaluation of 12 retrieval systems reveals substantial challenges: the best model (DiVeR) achieves only 32.0 NDCG@10 and 71.4% Temporal Coverage@10, demonstrating difficulty in retrieving temporally complete evidence. 
-
-We believe TEMPO provides a challenging benchmark for improving temporal reasoning in retrieval and RAG systems.
+### 🚨 News
+- **[2024-01]** 🚀 **TEMPO Launch**: We are excited to release the TEMPO benchmark, dataset, and leaderboard! Check out our [website](https://tempo-bench.github.io) for the latest results.
+- **[2024-01]** 📄 **Paper**: Our paper describing the construction and analysis of TEMPO is now available on ArXiv.
+- **[2024-01]** 🛠️ **Code**: Full evaluation code and temporal metrics are released.
 
 ---
 
-## 🚀 Leaderboard (NDCG@10)
+Existing temporal QA benchmarks focus on simple fact-seeking queries, while reasoning-intensive retrieval benchmarks lack temporal grounding. **TEMPO** bridges this gap as the first benchmark combining temporal reasoning with reasoning-intensive retrieval across 13 domains.
 
-This table shows the performance of various retrieval models on the TEMPO benchmark.
+**TEMPO Features:**
+1.  **1,730 Complex Queries**: Requiring deep temporal reasoning (tracking changes, trends, cross-period evidence).
+2.  **Step-wise Retrieval Planning**: 3,976 decomposed steps with gold documents mapped for multi-hop evaluation.
+3.  **Novel Temporal Metrics**: Introducing **Temporal Coverage@k** and **Temporal Precision@k** to measure temporal completeness.
+
+---
+
+## 🏆 Leaderboard
+
+> **Note:** For the most up-to-date and interactive leaderboard, visit our [Official Website](https://tempo-bench.github.io).
 
 | Domain      | BM25 | BGE  | Contriever | DiVeR          | E5             | GritLM | Inst-L | Qwen | Rader | ReasonIR | SBERT | SFR            |
 |-------------|:----:|:----:|:----------:|:--------------:|:--------------:|:------:|:------:|:----:|:-----:|:--------:|:-----:|:--------------:|
@@ -32,7 +47,7 @@ This table shows the performance of various retrieval models on the TEMPO benchm
 | **Bitcoin**   | 6.2  | 14.4 | 13.3       | 17.4           | 16.3           | **19.1** | 15.7   | 11.4 | 14.9  | 16.3     | 14.3  | <u>17.6</u>     |
 | **Economics** | 5.8  | 12.6 | 16.3       | **27.8**       | <u>25.0</u>     | 17.2   | 17.5   | 17.1 | 22.7  | 20.0     | 15.3  | 21.9           |
 | **Law**       | 12.7 | 31.9 | 28.1       | <u>40.4</u>     | 34.0           | 38.3   | 37.3   | 32.0 | 33.5  | 37.9     | 33.8  | **40.8**       |
-| **Politics**  | 32.7 | 28.2 | 31.6       | <u>45.5</u>     | **47.9**       | 41.4   | 32.6   | 38.1 | 32.4  | 35.4     | 34.6  | 44.9           |
+| **Political** | 32.7 | 28.2 | 31.6       | <u>45.5</u>     | **47.9**       | 41.4   | 32.6   | 38.1 | 32.4  | 35.4     | 34.6  | 44.9           |
 | **History**   | 9.2  | 27.4 | 26.5       | **34.5**       | 28.7           | 27.3   | 28.5   | 25.6 | 25.8  | 34.3     | 28.7  | <u>32.4</u>     |
 | **Quant**     | 2.5  | 11.7 | 11.1       | <u>27.2</u>     | 13.8           | 21.6   | 14.6   | 12.7 | **27.8** | 19.5     | 15.7  | 16.8           |
 | **Travel**    | 4.6  | 23.8 | 23.7       | 26.8           | <u>28.3</u>     | 25.0   | 25.0   | 22.0 | 26.1  | 21.4     | 27.3  | **29.7**       |
@@ -41,63 +56,112 @@ This table shows the performance of various retrieval models on the TEMPO benchm
 | **HSM**       | 21.2 | 23.2 | 18.9       | 31.0           | **37.7**       | 33.4   | 24.4   | 21.3 | 16.9  | 24.7     | 26.1  | <u>33.5</u>     |
 | **Avg.**      | 10.8 | 22.0 | 21.4       | **32.0**       | <u>30.4</u>     | 27.2   | 24.8   | 22.8 | 24.2  | 27.2     | 24.9  | 30.0           |
 
-*Best score per domain is in **bold**, second best is <u>underlined</u>.*
-
-## 📊 Benchmark Comparison
-
-TEMPO is designed to bridge the gap between reasoning-intensive and temporal retrieval benchmarks.
-
-| Benchmark         | #Q     | #D | Src.          | Temp.    | Reason.  | Expert   | Step     | Cross    |
-|-------------------|--------|----|---------------|:--------:|:--------:|:--------:|:--------:|:--------:|
-| **BRIGHT**        | 1,384  | 12 | Mixed         | ❌        | ✅        | ✅        | ❌        | ❌        |
-| **RAR-b**         | 45,745 | 17 | Mixed         | ❌        | ✅        | ✅        | ❌        | ❌        |
-| NTCIR Temporalia  | 100    | Open| News/Blogs    | ✅        | ❌        | ❌        | ❌        | ❌        |
-| TempQuestions     | 1,271  | Open| Freebase      | ✅        | ❌        | ❌        | ✅        | ❌        |
-| ChronoQA          | 5,176  | Open| News (CN)     | ✅        | ❌        | ❌        | ❌        | ❌        |
-| TIME              | 38,522 | 3  | Wiki/News/D   | ✅        | ❌        | ❌        | ❌        | ❌        |
-| HistoryBankQA     | 535K   | 10 | Wikipedia     | ✅        | ❌        | ❌        | ❌        | ❌        |
-| ComplexTempQA     | 100M+  | Open| Wikipedia     | ✅        | ❌        | ❌        | ✅        | ❌        |
-| **TEMPO (Ours)**  | **1,730**| **13**| **Stack Exch.**| ✅      | ✅      | ✅      | ✅      | ✅      |
+---
 
 ## ⚙️ Setup & Usage
 
-This repository provides the code to reproduce the results on the TEMPO benchmark.
+### 1. Installation
 
-**1. Installation**
-
-Clone the repository and install the required dependencies. We recommend using a virtual environment.
-
+Clone the repository and install the dependencies:
 ```bash
 git clone https://github.com/tempo-bench/Tempo.git
 cd Tempo
 pip install -r requirements.txt
 ```
 
-**2. Running Evaluation**
+### 2. Retrieval Evaluation
 
-Use `run.py` for standard retrieval and `run_step.py` for step-wise evaluation.
+Run standard retrieval evaluation using `run.py`. This supports running over all domains or specific ones.
 
 ```bash
-# Example for standard evaluation on the 'history' domain with BM25
-python run.py \
-    --task history \
-    --model bm25 \
-    --output_dir outputs
+# Evaluate retrieval on the 'history' domain with BM25
+python run.py --task history --model bm25 --output_dir outputs
 
-# Example for step-wise evaluation on the 'economics' domain with E5
-python run_step.py \
-    --task economics \
-    --model e5 \
-    --output_dir outputs_steps \
-    --encode_batch_size 4
+# Evaluate on ALL domains
+python run.py --task all --model bm25 --output_dir outputs
 ```
 
-See `python run.py --help` for a full list of models and arguments.
+### 3. Step-wise Evaluation
+
+For deeper analysis, evaluating the intermediate retrieval steps:
+
+```bash
+python run_step.py --task economics --model e5 --output_dir outputs_steps
+```
+
+### 4. 📈 Calculating Temporal Metrics (New!)
+
+We provide a dedicated script `temporal_metrics.py` to calculate advanced temporal metrics like **Temporal Coverage** and **Temporal Precision**. This script uses an LLM to judge the temporal relevance of retrieved documents.
+
+**Note**: You must perform step 1 first to install the required provider libraries (e.g., `openai`, `anthropic`, `google-generativeai`).
+
+The script automatically downloads the necessary queries and corpus data from the **Hugging Face Hub** (dataset `tempo26/Tempo`), so you don't need to manually download data files.
+
+#### Supported Providers & Configuration
+Set the environment variables for your chosen provider:
+
+**🔷 Azure OpenAI (Default)**
+```bash
+export AZURE_OPENAI_ENDPOINT="https://your-endpoint.openai.azure.com/"
+export AZURE_OPENAI_API_KEY="your-api-key"
+export AZURE_DEPLOYMENT_NAME="gpt-4o"
+```
+
+**🟢 OpenAI**
+```bash
+export OPENAI_API_KEY="sk-..."
+export OPENAI_MODEL="gpt-4o" # Optional
+```
+
+**🟠 Anthropic (Claude)**
+```bash
+export ANTHROPIC_API_KEY="sk-ant-..."
+export ANTHROPIC_MODEL="claude-3-5-sonnet-20240620" # Optional
+```
+
+**🔵 Google (Gemini)**
+```bash
+export GOOGLE_API_KEY="AIza..."
+export GEMINI_MODEL="gemini-1.5-pro" # Optional
+```
+
+#### Running the Script
+Run the script specifying the provider using `--provider`.
+
+```bash
+# Using Azure (default)
+python temporal_metrics.py \
+    --model_results_dir ./outputs \
+    --k_values 10 20 \
+    --provider azure
+
+# Using OpenAI
+python temporal_metrics.py --model_results_dir ./outputs --k_values 10 --provider openai
+
+# Using Claude
+python temporal_metrics.py --model_results_dir ./outputs --k_values 10 --provider anthropic
+```
+
+---
+
+## 📊 Benchmark Comparison
+
+| Benchmark         | #Q     | #D | Src.          | Temp.    | Reason.  | Expert   | Step     | Cross    |
+|-------------------|--------|----|---------------|:--------:|:--------:|:--------:|:--------:|:--------:|
+| **BRIGHT**        | 1,384  | 12 | Mixed         | ❌        | ✅        | ✅        | ❌        | ❌        |
+| **RAR-b**         | 45,745 | 17 | Mixed         | ❌        | ✅        | ✅        | ❌        | ❌        |
+| NTCIR Temporalia  | 100    | Open| News/Blogs    | ✅        | ❌        | ❌        | ❌        | ❌        |
+| **TEMPO (Ours)**  | **1,730**| **13**| **Stack Exch.**| ✅      | ✅      | ✅      | ✅      | ✅      |
 
 ## 📝 Citation
 
 If you use TEMPO in your work, please cite our paper:
 
 ```bibtex
-soon
+@article{tempo2024,
+  title={TEMPO: A Realistic Multi-Domain Benchmark for Temporal Reasoning-Intensive Retrieval},
+  author={...},
+  journal={arXiv preprint},
+  year={2024}
+}
 ```
