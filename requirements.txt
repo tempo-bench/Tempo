@@ -11,3 +11,5 @@ gritlm
 torchmetrics
 pyserini
 gensim
+anthropic
+google-generativeai

@@ -26,3 +26,4 @@ data/
 
 upload.py
 prepare.py
+verify_upload.py

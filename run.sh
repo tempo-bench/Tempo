@@ -1,86 +1,55 @@
+#!/bin/bash
 
-python run.py \
-    --dataset_dir my_ir_dataset \
-    --model bm25 \
-    --output_dir outputs \
-    --encode_batch_size 1024 \
-    --domains bitcoin cardano economics genealogy history hsm iota law monero politics quant  travel  workplace
+# Define the domains and models to evaluate
+DOMAINS=(
+    'bitcoin' 'cardano' 'economics' 'genealogy' 'history' 'hsm' 
+    'iota' 'law' 'monero' 'politics' 'quant' 'travel' 'workplace'
+)
+#'sf' 'qwen' 'qwen2' 'e5' 'bm25' 'sbert' 'bge' 'inst-l' 'inst-xl' 
+    # 'grit' 'cohere' 'voyage' 'openai' 'google' 'diver-retriever' 
+    # 'contriever' 'reasonir' 'm2' 'rader' 'nomic'
+MODELS=(
+    'bm25' 'contriever' 'bge'
+)
 
-python run.py \
-    --dataset_dir ./my_ir_dataset \
-    --model bge \
-    --output_dir outputs \
-    --encode_batch_size 1024 \
-    --domains bitcoin cardano economics genealogy history hsm iota law monero politics quant  travel  workplace 
+# Directory for outputs and cache
+OUTPUT_DIR="outputs"
+CACHE_DIR="cache"
+CONFIG_DIR="configs"
 
-python run.py \
-    --dataset_dir my_ir_dataset \
-    --model contriever \
-    --output_dir outputs \
-    --encode_batch_size 1024 \
-    --domains bitcoin cardano economics genealogy history hsm iota law monero politics quant  travel  workplace 
+# Loop over each domain and model to run the evaluation
+for domain in "${DOMAINS[@]}"; do
+    for model in "${MODELS[@]}"; do
+        echo "Running evaluation for domain: $domain with model: $model"
 
-python run.py \
-    --dataset_dir my_ir_dataset \
-    --model diver-retriever \
-    --output_dir outputs \
-    --encode_batch_size 1024 \
-    --domains bitcoin cardano economics genealogy history hsm iota law monero politics quant  travel  workplace 
+        # Base command
+        CMD="python run.py \
+            --task $domain \
+            --model $model \
+            --output_dir $OUTPUT_DIR \
+            --cache_dir $CACHE_DIR \
+            --config_dir $CONFIG_DIR"
 
+        # Add model-specific arguments if needed
+        if [ "$model" == "reasonir" ]; then
+            CMD="$CMD --encode_batch_size 1"
+        else
+            CMD="$CMD --encode_batch_size 1024"
+        fi
 
-python run.py \
-    --dataset_dir my_ir_dataset \
-    --model e5 \
-    --output_dir outputs \
-    --encode_batch_size 1024 \
-    --domains bitcoin cardano economics genealogy history hsm iota law monero politics quant  travel  workplace 
+        # To avoid re-running and overwriting results, check if the output exists
+        SCORE_FILE="outputs/$model/$domain/scores.json"
+        if [ -f "$SCORE_FILE" ]; then
+            echo "Scores for $model on $domain already exist. Skipping."
+            continue
+        fi
 
-python run.py \
-    --dataset_dir my_ir_dataset \
-    --model reasonir \
-    --output_dir outputs \
-    --encode_batch_size 1 \
-     --model_data_dir queries \
-    --domains  bitcoin cardano economics genealogy history hsm iota law monero politics quant  travel  workplace
+        # Run the command
+        eval $CMD
 
+        # Optional: Add a delay to avoid rate-limiting if using API-based models
+        # sleep 1
+    done
+done
 
-
-python run.py \
-    --dataset_dir my_ir_dataset \
-    --model qwen \
-    --output_dir outputs \
-    --encode_batch_size 1024 \
-    --domains bitcoin cardano economics genealogy history hsm iota law monero politics quant  travel  workplace
-
-python run.py \
-    --dataset_dir my_ir_dataset \
-    --model qwen2 \
-    --output_dir outputs \
-    --encode_batch_size 1024 \
-    --domains bitcoin cardano economics genealogy history hsm iota law monero politics quant  travel  workplace
-
-python run.py \
-    --dataset_dir my_ir_dataset \
-    --model rader \
-    --output_dir outputs \
-    --encode_batch_size 1024 \
-    --domains bitcoin cardano economics genealogy history hsm iota law monero politics quant  travel  workplace
-
-python run.py \
-    --dataset_dir my_ir_dataset \
-    --model sf \
-    --output_dir outputs \
-    --encode_batch_size 1024 \
-    --domains bitcoin cardano economics genealogy history hsm iota law monero politics quant  travel  workplace
-
-
-
-
-
-
-
-
-
-
-
-
+echo "All evaluations complete."
