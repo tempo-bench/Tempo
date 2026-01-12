@@ -1,0 +1,28 @@
+# Cache and temporary files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+cache/
+outputs/
+outputs_steps/
+
+# Dataset
+data/
+
+# Paper
+*.tex
+*.bib
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+
+# IDE settings
+.vscode/
+.idea/
+
+
+upload.py
+prepare.py
