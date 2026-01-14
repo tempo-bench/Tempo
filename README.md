@@ -1,12 +1,12 @@
 # TEMPO: A Realistic Multi-Domain Benchmark for Temporal Reasoning-Intensive Retrieval
 
 <p align="center">
-    <a href="https://tempo-bench.github.io" target="_blank">
+    <!-- <a href="https://tempo-bench.github.io" target="_blank">
         <img src="https://img.shields.io/badge/🌐_Website-TEMPO_Benchmark-blue?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website">
     </a>
     <a href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank">
         <img src="https://img.shields.io/badge/📄_Paper-ArXiv-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white" alt="ArXiv">
-    </a>
+    </a> -->
     <a href="https://huggingface.co/datasets/tempo26/Tempo" target="_blank">
         <img src="https://img.shields.io/badge/🤗_Dataset-Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face Datasets">
     </a>
