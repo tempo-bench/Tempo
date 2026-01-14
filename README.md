@@ -20,7 +20,6 @@
 </p>
 
 ### 🚨 News
-- **[2026-01]** 📄 **Paper**: Our paper describing the construction and analysis of TEMPO is now available on ArXiv.
 - **[2026-01]** 🛠️ **Code**: Full evaluation code and temporal metrics are released.
 
 ---
