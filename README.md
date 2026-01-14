@@ -20,9 +20,8 @@
 </p>
 
 ### 🚨 News
-- **[2024-01]** 🚀 **TEMPO Launch**: We are excited to release the TEMPO benchmark, dataset, and leaderboard! Check out our [website](https://tempo-bench.github.io) for the latest results.
-- **[2024-01]** 📄 **Paper**: Our paper describing the construction and analysis of TEMPO is now available on ArXiv.
-- **[2024-01]** 🛠️ **Code**: Full evaluation code and temporal metrics are released.
+- **[2026-01]** 📄 **Paper**: Our paper describing the construction and analysis of TEMPO is now available on ArXiv.
+- **[2026-01]** 🛠️ **Code**: Full evaluation code and temporal metrics are released.
 
 ---
 
@@ -158,10 +157,5 @@ python temporal_metrics.py --model_results_dir ./outputs --k_values 10 --provide
 If you use TEMPO in your work, please cite our paper:
 
 ```bibtex
-@article{tempo2024,
-  title={TEMPO: A Realistic Multi-Domain Benchmark for Temporal Reasoning-Intensive Retrieval},
-  author={...},
-  journal={arXiv preprint},
-  year={2024}
-}
+soon
 ```
