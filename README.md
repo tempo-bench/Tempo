@@ -35,7 +35,7 @@ Existing temporal QA benchmarks focus on simple fact-seeking queries, while reas
 
 ## 🏆 Leaderboard
 
-> **Note:** For the most up-to-date and interactive leaderboard, visit our [Official Website](https://tempo-bench.github.io).
+ <!-- > **Note:** For the most up-to-date and interactive leaderboard, visit our [Official Website](https://tempo-bench.github.io). -->
 
 | Domain      | BM25 | BGE  | Contriever | DiVeR          | E5             | GritLM | Inst-L | Qwen | Rader | ReasonIR | SBERT | SFR            |
 |-------------|:----:|:----:|:----------:|:--------------:|:--------------:|:------:|:------:|:----:|:-----:|:--------:|:-----:|:--------------:|
