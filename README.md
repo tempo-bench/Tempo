@@ -156,5 +156,10 @@ python temporal_metrics.py --model_results_dir ./outputs --k_values 10 --provide
 If you use TEMPO in your work, please cite our paper:
 
 ```bibtex
-soon
+@article{abdallah2026tempo,
+  title={TEMPO: A Realistic Multi-Domain Benchmark for Temporal Reasoning-Intensive Retrieval},
+  author={Abdallah, Abdelrahman and Ali, Mohammed and Abdul-Mageed, Muhammad and Jatowt, Adam},
+  journal={arXiv preprint arXiv:2601.09523},
+  year={2026}
+}
 ```
